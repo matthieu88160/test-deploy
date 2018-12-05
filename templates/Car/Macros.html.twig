@@ -1,0 +1,7 @@
+{% macro carCardGroup(carList) %}
+	<div class="card-group">
+    	{% for car in carList %}
+    		{{ display_car_card(car) }}
+    	{% endfor %}
+	</div>
+{% endmacro %}

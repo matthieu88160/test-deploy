@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Parent</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for brand in brands %}
+    			<tr>
+    				<td>{{ brand.getName() }}</td>
+    				{% if brand.getParent() is not null %}
+    					<td>{{ brand.getParent().getName() }}</td>
+    				{% else %}
+    					<td>&nbsp;</td>
+    				{% endif %}
+    			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}

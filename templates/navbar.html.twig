@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+  	</button>
+    {%  set route = app.request.get('_route') %}
+  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    	<ul class="navbar-nav mr-auto">
+      		<li class="nav-item{% if route == 'homepage' %} active{% endif %}">
+        		<a class="nav-link" href="{{ path("homepage") }}">{{ 'Home'|trans }}</a>
+      		</li>
+      		<li class="nav-item{% if route == 'create_car' %} active{% endif %}">
+        		<a class="nav-link" href="{{ path("create_car") }}">{{ 'Create a car'|trans }}</a>
+      		</li>
+      		<li class="nav-item{% if route == 'car_list' %} active{% endif %}">
+        		<a class="nav-link" href="{{ path("car_list") }}">{{ 'Cars'|trans }}</a>
+      		</li>
+      		<li class="nav-item{% if route == 'about' %} active{% endif %}">
+        		<a class="nav-link" href="{{ path("about") }}">{{ 'About'|trans }}</a>
+      		</li>
+      		<li class="nav-item{% if route == 'create_brand' %} active{% endif %}">
+        		<a class="nav-link" href="{{ path("create_brand") }}">{{ 'Create brand'|trans }}</a>
+      		</li>
+      		<li class="nav-item{% if route == 'create_seat' %} active{% endif %}">
+        		<a class="nav-link" href="{{ path("create_seat") }}">{{ 'Create seat'|trans }}</a>
+      		</li>
+      		<li class="nav-item{% if route == 'brand_list' %} active{% endif %}">
+        		<a class="nav-link" href="{{ path("brand_list") }}">{{ 'Brands'|trans }}</a>
+      		</li>
+      		<li class="nav-item{% if route == 'seat_list' %} active{% endif %}">
+        		<a class="nav-link" href="{{ path("seat_list") }}">{{ 'Seats'|trans }}</a>
+      		</li>
+      		{% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+      		<li class="nav-item{% if route == 'register' %} active{% endif %}">
+        		<a class="nav-link" href="{{ path("register") }}">{{ 'Sign Up'|trans }}</a>
+      		</li>
+      		<li class="nav-item{% if route == 'login' %} active{% endif %}">
+        		<a class="nav-link" href="{{ path("login") }}">{{ 'Login'|trans }}</a>
+      		</li>
+      		{% endif %}
+      		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+      		<li class="nav-item">
+        		<a class="nav-link" href="{{ path("logout") }}">{{ 'Logout'|trans }}</a>
+      		</li>
+      		{% endif %}
+    	</ul>
+  	</div>
+</nav>

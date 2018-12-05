@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+{% import "Car/Macros.html.twig" as carMacro %}
+
+{% block body %}
+	{{ carMacro.carCardGroup(cars) }}
+{% endblock %}
